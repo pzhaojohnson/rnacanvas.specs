@@ -1,6 +1,6 @@
 {
   "name": "@rnacanvas/specs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Drawing specifications",
   "repository": {
     "type": "git",
@@ -29,6 +29,9 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
+    "@rnacanvas/draw.bases": "^9.3.0",
+    "@rnacanvas/draw.bases.bonds": "^12.3.0",
+    "@rnacanvas/draw.style": "^2.5.0",
     "@rnacanvas/value-check": "^1.14.1",
     "jquery": "^3.7.1"
   }
