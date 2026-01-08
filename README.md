@@ -20,6 +20,7 @@ import { Spec } from '@rnacanvas/specs';
 Represents a specification for a drawing.
 
 ```javascript
+// an example specification
 var spec = new Spec({
   bases: {
     attributes: {
@@ -27,23 +28,57 @@ var spec = new Spec({
       'fill': 'red',
 
       // give all bases a font size of 9 pixels
+      // (non-string attribute values are converted to strings)
       'font-size': 9,
     },
   },
+  outlines: {
+    attributes: {
+      'stroke': 'cyan',
+      'stroke-width': 3,
+    },
+  },
+  numberings: {
+    attributes: {
+      'font-family': 'Arial Narrow',
+      'font-size': 12,
+    },
+  },
+  numberingLines: {
+    attributes: {
+      'stroke-dasharray': '1 1',
+      'stroke-width': 1,
+    },
+    basePadding: 8,
+    textPadding: 4
+  },
   primaryBonds: {
-    // give all primary bonds base paddings of 12
+    attributes: { 'stroke': 'yellow' },
     basePadding1: 12,
     basePadding2: 12,
   },
+  secondaryBonds: {
+    attributes: { 'stroke-linecap': 'round' },
+    basePadding1: 6,
+    basePadding2: 6,
+  },
+  tertiaryBonds: {
+    attributes: { 'stroke-dashsarray': '2 1' },
+    basePadding1: 8,
+    basePadding2: 8,
+  },
 });
+```
 
-// apply to an RNAcanvas drawing object
+Specifications are applied to RNAcanvas drawings using the `applyTo()` method.
+
+```javascript
+// apply the spec to an RNAcanvas drawing object
 spec.applyTo(drawing);
 ```
 
 Specifications are intended to be read in from the user
-(e.g., from a JSON file)
-and then applied to an RNAcanvas drawing.
+(e.g., from a JSON file).
 
 Note that applying a specification also updates the default values for elements.
 
